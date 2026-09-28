@@ -1,3 +1,4 @@
+import { Preloader } from "@/components/Preloader";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -15,6 +16,7 @@ import { Footer } from "@/components/Footer";
 export default function Home() {
   return (
     <main className="bg-mint-100 min-h-screen overflow-x-hidden">
+      <Preloader />
       <Navbar />
       <Hero />
       <About />
