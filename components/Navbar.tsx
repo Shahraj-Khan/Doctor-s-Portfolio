@@ -49,18 +49,18 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-ink-soft hover:text-ink transition-colors relative group focus-ring rounded"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-brass-500 transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
-        </nav>
+      <nav className="hidden lg:flex items-center gap-9">
+        {links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="text-[16px] font-medium text-ink-soft hover:text-ink transition-colors relative group focus-ring rounded"
+          >
+            {link.label}
+            <span className="absolute -bottom-1.5 left-0 h-[1.5px] w-0 bg-brass-500 transition-all duration-300 ease-out group-hover:w-full" />
+          </a>
+        ))}
+      </nav>
 
         <a
           href="#contact"
@@ -78,42 +78,46 @@ export function Navbar() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-teal-950/98 backdrop-blur-sm lg:hidden"
+<AnimatePresence>
+  {open && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 bg-teal-900/55 backdrop-blur-2xl lg:hidden"
+    >
+      <div className="flex justify-between items-center px-6 pt-6">
+        <span className="font-display text-lg text-mint-100">
+          Dr. Thomas
+        </span>
+
+        <button
+          onClick={() => setOpen(false)}
+          className="flex h-10 w-10 items-center justify-center rounded-full text-mint-100 focus-ring"
+          aria-label="Close menu"
+        >
+          <X size={22} />
+        </button>
+      </div>
+
+      <nav className="flex flex-col items-start gap-2 px-8 pt-16">
+        {links.map((link, i) => (
+          <motion.a
+            key={link.href}
+            href={link.href}
+            onClick={() => setOpen(false)}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.08 * i, duration: 0.4 }}
+            className="font-display text-3xl text-mint-100/90 hover:text-brass-400 transition-colors py-3"
           >
-            <div className="flex justify-between items-center px-6 pt-6">
-              <span className="font-display text-lg text-mint-100">Dr. Thomas</span>
-              <button
-                onClick={() => setOpen(false)}
-                className="flex h-10 w-10 items-center justify-center rounded-full text-mint-100 focus-ring"
-                aria-label="Close menu"
-              >
-                <X size={22} />
-              </button>
-            </div>
-            <nav className="flex flex-col items-start gap-2 px-8 pt-16">
-              {links.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.08 * i, duration: 0.4 }}
-                  className="font-display text-3xl text-mint-100/90 hover:text-brass-400 transition-colors py-3"
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {link.label}
+          </motion.a>
+        ))}
+      </nav>
+    </motion.div>
+  )}
+</AnimatePresence>
     </motion.header>
   );
 }
