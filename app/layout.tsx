@@ -18,22 +18,39 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dr. Amelia Thomas — Internal Medicine Specialist",
+  title: "Dr. Thomas | Internal Medicine Specialist",
+
   description:
-    "Dr. Amelia Thomas is a board-certified Internal Medicine physician specializing in chronic disease management, hypertension, and preventive care. Book a consultation today.",
+    "Dr. Amelia Thomas is an Internal Medicine specialist providing thoughtful, evidence-based care in chronic disease management, hypertension, and preventive health.",
+
   keywords: [
-    "Dr. Thomas",
-    "Internal Medicine",
-    "physician",
-    "chronic disease management",
-    "hypertension specialist",
-    "medical consultation",
+    "Dr. Amelia Thomas",
+    "Internal Medicine Specialist",
+    "Internal Medicine Physician",
+    "Chronic Disease Management",
+    "Hypertension Care",
+    "Preventive Healthcare",
+    "Medical Consultation",
   ],
+
   openGraph: {
-    title: "Dr. Amelia Thomas — Internal Medicine Specialist",
+    title: "Dr. Amelia Thomas | Internal Medicine Specialist",
     description:
-      "Board-certified Internal Medicine physician specializing in chronic disease management and preventive care.",
+      "Thoughtful, evidence-based Internal Medicine care focused on chronic disease management, hypertension, and preventive health.",
     type: "website",
+    siteName: "Dr. Amelia Thomas",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Dr. Amelia Thomas | Internal Medicine Specialist",
+    description:
+      "Thoughtful, evidence-based Internal Medicine care focused on chronic disease management, hypertension, and preventive health.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
